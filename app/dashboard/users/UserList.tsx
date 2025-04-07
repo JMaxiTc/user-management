@@ -1,5 +1,4 @@
-// app/dashboard/users/UserList.tsx
-"use client"; // Marca este componente como cliente
+"use client";
 
 import { useState } from "react";
 
@@ -21,9 +20,7 @@ export default function UserList({ users }: UserListProps) {
     try {
       const response = await fetch("/api/users", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ userId, role: newRole }),
       });
 
@@ -71,11 +68,6 @@ export default function UserList({ users }: UserListProps) {
                     <option value="ADMIN">Administrador</option>
                     <option value="USER">Colaborador</option>
                   </select>
-                  <button
-                    onClick={() => handleRoleUpdate(user.id, user.role)}
-                  >
-                    Actualizar
-                  </button>
                 </td>
               </tr>
             ))}
