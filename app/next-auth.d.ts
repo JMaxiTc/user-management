@@ -7,6 +7,7 @@ declare module "next-auth" {
       name?: string | null;
       email?: string | null;
       image?: string | null;
+      role: string; // Agrega role aquí
     };
   }
 
@@ -15,5 +16,10 @@ declare module "next-auth" {
     name?: string | null;
     email?: string | null;
     image?: string | null;
+    role: string; // Agrega role aquí
+  }
+
+  interface JWT {
+    role: string; // Agrega role aquí para que esté disponible en el token JWT
   }
 }
