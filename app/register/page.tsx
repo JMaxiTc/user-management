@@ -1,5 +1,7 @@
+'use client';
+
 import { useState } from "react";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation"; 
 
 export default function Register() {
   const [email, setEmail] = useState("");
@@ -13,7 +15,7 @@ export default function Register() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
     });
-    if (res.ok) router.push("/api/auth/signin");
+    if (res.ok) router.push("/");
   };
 
   return (

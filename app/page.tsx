@@ -17,7 +17,7 @@ export default function Login() {
       email,
       password,
     });
-
+    console.log(result); // Esto te mostrará el resultado completo de la autenticación
     if (result?.error) {
       setError("Invalid email or password");
     } else if (result) {
@@ -33,6 +33,7 @@ export default function Login() {
         <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
         <button type="submit">Login</button>
         {error && <p style={{ color: "red" }}>{error}</p>}
+        <p>Don't have an account? <a href="/register" style={{ color: "#0070f3", textDecoration: "none" }}>Register here</a></p>
       </form>
     </div>
   );
