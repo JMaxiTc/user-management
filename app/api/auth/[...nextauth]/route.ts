@@ -1,22 +1,11 @@
-import NextAuth, { Session } from "next-auth";
+import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcryptjs";
 
 const prisma = new PrismaClient();
 
-declare module "next-auth" {
-  interface Session {
-    user: {
-      id: string;
-      name?: string | null;
-      email?: string | null;
-      image?: string | null;
-    };
-  }
-}
-
-export default NextAuth({
+const handler = NextAuth({
   providers: [
     CredentialsProvider({
       name: "Credentials",
@@ -46,3 +35,6 @@ export default NextAuth({
   },
   secret: process.env.NEXTAUTH_SECRET,
 });
+
+// Exporta el handler para GET y POST
+export { handler as GET, handler as POST };
