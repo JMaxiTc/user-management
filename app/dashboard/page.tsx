@@ -1,18 +1,16 @@
 // app/dashboard/page.tsx
-"use client"; // Marca este componente como un componente de cliente
+"use client"; // si requieres hooks de cliente, por ejemplo para el Navbar
 
-import { useSession } from "next-auth/react";
+import Navbar from "@/components/Navbar";
 
-export default function Dashboard() {
-  const { data: session } = useSession();
-
-  if (!session) {
-    return <p>Loading...</p>;
-  }
-
+export default function DashboardHome() {
   return (
-    <div>
-      <h1>Welcome, {session.user?.name}</h1>
-    </div>
+    <>
+      <Navbar />
+      <div style={{ padding: "2rem" }}>
+        <h1>Panel de Inicio</h1>
+        <p>Bienvenido al sistema. Usa el menú para navegar.</p>
+      </div>
+    </>
   );
 }
